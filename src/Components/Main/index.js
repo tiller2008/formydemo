@@ -71,7 +71,7 @@ export default class Main extends Component {
         }
 
         // 通过类别来帅选显示应用
-        const filter = this.props.match.url.substr(1);
+        const filter = this.props.match.url.split('/').join('');    // split和join联合可以全部替换，若单个替换可以使用replace
 
         return (
             <Content style={{ margin: '0 16px' }}>
@@ -82,7 +82,7 @@ export default class Main extends Component {
                     {
                         this.state.menu.map((m, idx) => {
                             return (
-                                '/' + m.name === this.props.match.url ?
+                                m.name === filter ?
                                     <Breadcrumb.Item key={idx}>{m.title}</Breadcrumb.Item> : null
                             )
                         })
@@ -92,13 +92,10 @@ export default class Main extends Component {
                     <ul className="icon-list">
                         {
                             this.state.icon.map((i, idx) => {
-                                if (!filter)
+                                if (!filter || filter === i.catalog)
                                     return this._renderApp(i, idx)
                                 else
-                                    if (filter === i.catalog)
-                                        return this._renderApp(i, idx)
-                                    else
-                                        return null
+                                    return null
                             })
                         }
                         <Link to='/Shopping/taobaotianmao'>taobaotianmao</Link>
