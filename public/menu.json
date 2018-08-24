@@ -1,0 +1,55 @@
+{
+    "success": true,
+    "menu": [
+        {
+            "name": "Shopping",
+            "type": "shop",
+            "title": "电商"
+        },
+        {
+            "name": "Pay",
+            "type": "pay-circle",
+            "title": "支付"
+        },
+        {
+            "name": "Cloud",
+            "type": "cloud",
+            "title": "云"
+        },
+        {
+            "name": "Life",
+            "type": "gift",
+            "title": "生活"
+        },
+        {
+            "name": "Bank",
+            "type": "bank",
+            "title": "银行"
+        },
+        {
+            "name": "Insurance",
+            "type": "safety",
+            "title": "保险"
+        },
+        {
+            "name": "Video",
+            "type": "youtube",
+            "title": "视频"
+        },
+        {
+            "name": "Recruitment",
+            "type": "idcard",
+            "title": "招聘"
+        },
+        {
+            "name": "Social",
+            "type": "message",
+            "title": "社交"
+        },
+        {
+            "name": "Traffic",
+            "type": "car",
+            "title": "出行"
+        }
+    ]
+}
