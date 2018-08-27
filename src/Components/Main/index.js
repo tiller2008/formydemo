@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import { Layout, Breadcrumb } from 'antd';
-import Details from '../Details';
+import { Details, MyEditor } from '../Details';
 import './index.less';
 import Utils from '../../Utils/utils';
 
@@ -14,6 +14,7 @@ export default class Main extends Component {
             menu: null
         }
     }
+
     componentWillMount() {
         this.getData();
         if (!this.props.match.params.catalog)
@@ -53,9 +54,9 @@ export default class Main extends Component {
                 <span className="icon-name" title={i.title}>{i.title}</span>
                 <div className="icon-cover">
                     <span title="添加" className="cover-item anticon cover-item-line icon-star" onClick={this.handleSelectOrUnSelect.bind(this, idx)}></span>
-                    <span title="查看" className="cover-item anticon cover-item-line icon-eye">
-                        <Link to={`/${i.catalog}/${i.name.substr(7)}`} key={i.idx}></Link>
-                    </span>
+                    <Link to={`/${i.name.substr(7)}`} key={i.idx}>
+                        <span title="查看" className="cover-item anticon cover-item-line icon-eye"></span>
+                    </Link>
                 </div>
             </li>
         )
@@ -98,11 +99,11 @@ export default class Main extends Component {
                                     return null
                             })
                         }
-                        <Link to='/Shopping/taobaotianmao'>taobaotianmao</Link>
-                        <Switch>
-                            <Route path='/:catalog/:App' component={Details}></Route>
-                        </Switch>
                     </ul>
+                    <Switch>
+                        <Route exact path='/:App' component={Details}></Route>
+                        <Route path='/:App/_edit' component={MyEditor}></Route>
+                    </Switch>
                 </div>
                 <Layout>
                     <Footer style={{ textAlign: 'center' }}>
