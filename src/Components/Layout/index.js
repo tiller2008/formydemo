@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Switch, Route } from 'react-router-dom';
 import { Layout, Icon, Badge } from 'antd';
 import Slider from '../Slider';
 import MainRouter from '../../routes/MainRouter';

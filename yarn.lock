@@ -2168,7 +2168,7 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "http://registry.npm.taobao.org/date-now/download/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
 
-debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.6, debug@^2.6.8, debug@^2.6.9:
+debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.2, debug@^2.3.3, debug@^2.6.0, debug@^2.6.6, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
   resolved "http://registry.npm.taobao.org/debug/download/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
@@ -3913,6 +3913,10 @@ is-dotfile@^1.0.0:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/is-dotfile/download/is-dotfile-1.0.3.tgz#a6a2f32ffd2dfb04f5ca25ecd0f6b83cf798a1e1"
 
+is-empty@^1.0.0:
+  version "1.2.0"
+  resolved "http://registry.npm.taobao.org/is-empty/download/is-empty-1.2.0.tgz#de9bb5b278738a05a0b09a57e1fb4d4a341a9f6b"
+
 is-equal-shallow@^0.1.3:
   version "0.1.3"
   resolved "http://registry.npm.taobao.org/is-equal-shallow/download/is-equal-shallow-0.1.3.tgz#2238098fc221de0bcfa5d9eac4c45d638aa1c534"
@@ -3971,7 +3975,7 @@ is-glob@^4.0.0:
   dependencies:
     is-extglob "^2.1.1"
 
-is-hotkey@^0.1.3:
+is-hotkey@^0.1.1, is-hotkey@^0.1.3:
   version "0.1.3"
   resolved "http://registry.npm.taobao.org/is-hotkey/download/is-hotkey-0.1.3.tgz#8a129eec16f3941bd4f37191e02b9c3e91950549"
 
@@ -4581,6 +4585,10 @@ jsx-ast-utils@^2.0.0:
   dependencies:
     array-includes "^3.0.3"
 
+keycode@^2.1.2:
+  version "2.2.0"
+  resolved "http://registry.npm.taobao.org/keycode/download/keycode-2.2.0.tgz#3d0af56dc7b8b8e5cba8d0a97f107204eec22b04"
+
 killable@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/killable/download/killable-1.0.0.tgz#da8b84bd47de5395878f95d64d02f2449fe05e6b"
@@ -4780,7 +4788,7 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "~3.0.0"
 
-lodash.throttle@^4.0.0:
+lodash.throttle@^4.0.0, lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "http://registry.npm.taobao.org/lodash.throttle/download/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
 
@@ -4792,7 +4800,7 @@ lodash.uniqby@^4.7.0:
   version "4.7.0"
   resolved "http://registry.npm.taobao.org/lodash.uniqby/download/lodash.uniqby-4.7.0.tgz#d99c07a669e9e6d24e1362dfe266c67616af1302"
 
-"lodash@>=3.5 <5", lodash@^4.1.1, lodash@^4.15.0, lodash@^4.16.5, lodash@^4.17.10, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
+"lodash@>=3.5 <5", lodash@^4.15.0, lodash@^4.16.5, lodash@^4.17.10, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
   version "4.17.10"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
@@ -4882,10 +4890,6 @@ mem@^1.1.0:
   resolved "http://registry.npm.taobao.org/mem/download/mem-1.1.0.tgz#5edd52b485ca1d900fe64895505399a0dfa45f76"
   dependencies:
     mimic-fn "^1.0.0"
-
-memoize-one@^4.0.0:
-  version "4.0.0"
-  resolved "http://registry.npm.taobao.org/memoize-one/download/memoize-one-4.0.0.tgz#fc5e2f1427a216676a62ec652cf7398cfad123db"
 
 memory-fs@^0.4.0, memory-fs@~0.4.1:
   version "0.4.1"
@@ -6869,6 +6873,12 @@ react-lz-editor@^0.12.1:
     lodash "^4.17.3"
     synthetic-dom "^0.2.1"
 
+react-portal@^3.1.0:
+  version "3.2.0"
+  resolved "http://registry.npm.taobao.org/react-portal/download/react-portal-3.2.0.tgz#4224e19b2b05d5cbe730a7ba0e34ec7585de0043"
+  dependencies:
+    prop-types "^15.5.8"
+
 react-quill@^1.3.1:
   version "1.3.1"
   resolved "http://registry.npm.taobao.org/react-quill/download/react-quill-1.3.1.tgz#9fd2003f20a0f3bb6c9e55631add7658f5f967a4"
@@ -7487,25 +7497,15 @@ slash@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/slash/download/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
 
-slate-base64-serializer@^0.2.63:
+slate-base64-serializer@^0.2.19:
   version "0.2.63"
   resolved "http://registry.npm.taobao.org/slate-base64-serializer/download/slate-base64-serializer-0.2.63.tgz#b086dfce5145c29b8465dc54ff5493b726ddca07"
   dependencies:
     isomorphic-base64 "^1.0.2"
 
-slate-dev-environment@^0.2.0:
-  version "0.2.0"
-  resolved "http://registry.npm.taobao.org/slate-dev-environment/download/slate-dev-environment-0.2.0.tgz#c43f4a5e13cccc16ad4c3015c8ad182b6e5b5b3a"
-  dependencies:
-    is-in-browser "^1.1.3"
-
-slate-dev-logger@^0.1.0:
+slate-dev-logger@^0.1.0, slate-dev-logger@^0.1.36, slate-dev-logger@^0.1.43:
   version "0.1.43"
   resolved "http://registry.npm.taobao.org/slate-dev-logger/download/slate-dev-logger-0.1.43.tgz#77f6ca7207fcbf453a5516f3aa8b19794d1d26dc"
-
-slate-dev-warning@^0.0.1:
-  version "0.0.1"
-  resolved "http://registry.npm.taobao.org/slate-dev-warning/download/slate-dev-warning-0.0.1.tgz#f6c36731babea5e301b5bd504fe64911dd24200a"
 
 slate-drop-or-paste-images@^0.8.3:
   version "0.8.3"
@@ -7518,50 +7518,47 @@ slate-drop-or-paste-images@^0.8.3:
     is-url "^1.2.2"
     slate-dev-logger "^0.1.0"
 
-slate-hotkeys@^0.2.3:
-  version "0.2.3"
-  resolved "http://registry.npm.taobao.org/slate-hotkeys/download/slate-hotkeys-0.2.3.tgz#843a467421c643b4a1a3c240957c8adcfa99deb3"
+slate-plain-serializer@^0.5.0:
+  version "0.5.41"
+  resolved "http://registry.npm.taobao.org/slate-plain-serializer/download/slate-plain-serializer-0.5.41.tgz#dc2d219602c2cb8dc710ac660e108f3b3cc4dc80"
   dependencies:
-    is-hotkey "^0.1.3"
-    slate-dev-environment "^0.2.0"
+    slate-dev-logger "^0.1.43"
 
-slate-plain-serializer@^0.6.2:
-  version "0.6.2"
-  resolved "http://registry.npm.taobao.org/slate-plain-serializer/download/slate-plain-serializer-0.6.2.tgz#8d406f9523d7ba219d14bf300d30d7e093430247"
-
-slate-prop-types@^0.4.61:
+slate-prop-types@^0.4.17:
   version "0.4.61"
   resolved "http://registry.npm.taobao.org/slate-prop-types/download/slate-prop-types-0.4.61.tgz#141c109bed81b130dd03ab86dd7541b28d6d962a"
 
-slate-react@^0.18.3:
-  version "0.18.3"
-  resolved "http://registry.npm.taobao.org/slate-react/download/slate-react-0.18.3.tgz#fb057b06ff4b70a2825d4ac9aead342fe991c2e9"
+slate-react@0.11.0:
+  version "0.11.0"
+  resolved "http://registry.npm.taobao.org/slate-react/download/slate-react-0.11.0.tgz#667d531220cb2324d087b48b6bdc4c4a943d312c"
   dependencies:
-    debug "^3.1.0"
+    debug "^2.3.2"
     get-window "^1.1.1"
+    is-hotkey "^0.1.1"
+    is-in-browser "^1.1.3"
     is-window "^1.0.2"
-    lodash "^4.1.1"
-    memoize-one "^4.0.0"
+    keycode "^2.1.2"
+    lodash.throttle "^4.1.1"
     prop-types "^15.5.8"
     react-immutable-proptypes "^2.1.0"
+    react-portal "^3.1.0"
     selection-is-backward "^1.0.0"
-    slate-base64-serializer "^0.2.63"
-    slate-dev-environment "^0.2.0"
-    slate-dev-warning "^0.0.1"
-    slate-hotkeys "^0.2.3"
-    slate-plain-serializer "^0.6.2"
-    slate-prop-types "^0.4.61"
+    slate-base64-serializer "^0.2.19"
+    slate-dev-logger "^0.1.36"
+    slate-plain-serializer "^0.5.0"
+    slate-prop-types "^0.4.17"
 
-slate@^0.40.2:
-  version "0.40.2"
-  resolved "http://registry.npm.taobao.org/slate/download/slate-0.40.2.tgz#3adbd4bb66c16208b2dc3f0900b1857ea7912cb0"
+slate@0.32.0:
+  version "0.32.0"
+  resolved "http://registry.npm.taobao.org/slate/download/slate-0.32.0.tgz#eff876d8b110e44dd7d6256479c6eea45de648d7"
   dependencies:
-    debug "^3.1.0"
+    debug "^2.3.2"
     direction "^0.1.5"
     esrever "^0.2.0"
+    is-empty "^1.0.0"
     is-plain-object "^2.0.4"
     lodash "^4.17.4"
-    slate-dev-warning "^0.0.1"
+    slate-dev-logger "^0.1.36"
     type-of "^2.0.1"
 
 slice-ansi@1.0.0:

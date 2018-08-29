@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-// import { Editor, EditorState } from 'draft-js';
-// import 'draft-js/dist/Draft.css';
 import { Editor } from 'slate-react';
 import { Value } from 'slate';
-// import InsertImages from 'slate-drop-or-paste-images';
+import DropOrPasteImages from 'slate-drop-or-paste-images';
 
 import { isKeyHotkey } from 'is-hotkey';
-import { Button, Icon, Toolbar } from './components'
+import { Button, Toolbar } from './components'
+import Image from './Image';
 import initialValue from './value.json'
+import './index.less';
 
 /**
  * Define the default node type.
@@ -28,12 +28,32 @@ const isItalicHotkey = isKeyHotkey('mod+i');
 const isUnderlinedHotkey = isKeyHotkey('mod+u');
 const isCodeHotkey = isKeyHotkey('mod+`');
 
+// Add the plugin to your set of plugins...
+const plugins = [
+    DropOrPasteImages({
+        extensions: ['png'],
+        insertImage: (transform, file) => {
+            return transform.insertBlock({
+                type: 'image',
+                isVoid: true,
+                data: { file }
+            })
+        }
+    })
+]
+
+// let schema = {
+//     nodes: {
+//         image: Image
+//     }
+// }
+
 export default class RichEditor extends Component {
     constructor(props) {
         super(props);
         this.state = {
             value: Value.fromJSON(initialValue)
-            // editorState: EditorState.createEmpty()
+            // value: ''
         };
     }
 
@@ -46,7 +66,7 @@ export default class RichEditor extends Component {
 
     hasMark = type => {
         const { value } = this.state
-        return value.activeMarks.some(mark => mark.type === type)
+            return value.activeMarks.some(mark => mark.type === type)
     }
 
     /**
@@ -58,37 +78,30 @@ export default class RichEditor extends Component {
 
     hasBlock = type => {
         const { value } = this.state
-        return value.blocks.some(node => node.type === type)
-    }
-
-    handleChange({ value }) {
-        this.setState({ value })
+            return value.blocks.some(node => node.type === type)
     }
 
     render() {
         return (
-            // <Editor
-            //     editorState={this.state.editorState}
-            //     onChange={this.handleChange.bind(this)}
-            // /><div>
-            <div>
+            <div className='blank'>
                 <Toolbar>
-                    {this.renderMarkButton('bold', 'format_bold')}
-                    {this.renderMarkButton('italic', 'format_italic')}
-                    {this.renderMarkButton('underlined', 'format_underlined')}
-                    {this.renderMarkButton('code', 'code')}
-                    {this.renderBlockButton('heading-one', 'looks_one')}
-                    {this.renderBlockButton('heading-two', 'looks_two')}
-                    {this.renderBlockButton('block-quote', 'format_quote')}
-                    {this.renderBlockButton('numbered-list', 'format_list_numbered')}
-                    {this.renderBlockButton('bulleted-list', 'format_list_bulleted')}
+                    {this.renderMarkButton('bold', 'icon-bold', '粗体')}
+                    {this.renderMarkButton('italic', 'icon-italic', '斜体')}
+                    {this.renderMarkButton('underlined', 'icon-underline', '下划线')}
+                    {this.renderMarkButton('code', 'icon-code', '代码块')}
+                    {this.renderBlockButton('heading-one', 'icon-H', 'H1')}
+                    {this.renderBlockButton('heading-two', 'icon-H1', 'H2')}
+                    {this.renderBlockButton('block-quote', 'icon-quote', '引用')}
+                    {this.renderBlockButton('numbered-list', 'icon-orderedlist', '有序列表')}
+                    {this.renderBlockButton('bulleted-list', 'icon-unorderedlist', '无序列表')}
                 </Toolbar>
                 <Editor
                     spellCheck
                     autoFocus
                     placeholder="Enter some rich text..."
                     value={this.state.value}
-                    onChange={this.handleChange.bind(this)}
+                    plugins={plugins}
+                    onChange={this.onChange}
                     onKeyDown={this.onKeyDown}
                     renderNode={this.renderNode}
                     renderMark={this.renderMark}
@@ -105,7 +118,7 @@ export default class RichEditor extends Component {
    * @return {Element}
    */
 
-    renderMarkButton = (type, icon) => {
+    renderMarkButton = (type, icon, alt) => {
         const isActive = this.hasMark(type)
 
         return (
@@ -113,7 +126,7 @@ export default class RichEditor extends Component {
                 active={isActive}
                 onMouseDown={event => this.onClickMark(event, type)}
             >
-                <Icon>{icon}</Icon>
+                <i className={`iconfont ${icon}`} alt={alt} />
             </Button>
         )
     }
@@ -126,13 +139,13 @@ export default class RichEditor extends Component {
      * @return {Element}
      */
 
-    renderBlockButton = (type, icon) => {
+    renderBlockButton = (type, icon, alt) => {
         let isActive = this.hasBlock(type)
 
         if (['numbered-list', 'bulleted-list'].includes(type)) {
             const { value } = this.state
-            const parent = value.document.getParent(value.blocks.first().key)
-            isActive = this.hasBlock('list-item') && parent && parent.type === type
+                const parent = value.document.getParent(value.blocks.first().key)
+                isActive = this.hasBlock('list-item') && parent && parent.type === type
         }
 
         return (
@@ -140,17 +153,10 @@ export default class RichEditor extends Component {
                 active={isActive}
                 onMouseDown={event => this.onClickBlock(event, type)}
             >
-                <Icon>{icon}</Icon>
+                <i className={`iconfont ${icon}`} alt={alt} />
             </Button>
         )
     }
-
-    /**
-     * Render a Slate node.
-     *
-     * @param {Object} props
-     * @return {Element}
-     */
 
     renderNode = props => {
         const { attributes, children, node } = props
@@ -168,6 +174,8 @@ export default class RichEditor extends Component {
                 return <li {...attributes}>{children}</li>
             case 'numbered-list':
                 return <ol {...attributes}>{children}</ol>
+            case 'image':
+                return <Image {...props} />
             default:
                 return null;
         }
