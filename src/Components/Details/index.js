@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Button} from 'antd';
 
 import RichEditor from '../RichEditor';
 
@@ -15,8 +14,7 @@ class MyEditor extends Component {
     render() {
         return (
             <div>
-            <RichEditor />
-            <Button type='primary'>保存</Button>
+                <RichEditor />
             </div>
         )
     }
