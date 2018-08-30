@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Layout, Breadcrumb } from 'antd';
-import { Details, MyEditor } from '../Details';
+import AppRoutes from '../../routes/AppRoutes';
 import './index.less';
 import Utils from '../../Utils/utils';
 
@@ -26,10 +26,6 @@ export default class Main extends Component {
             let menu = JSON.parse(m).menu;
             this.setState({ menu: menu });
         });
-        Utils.ajax('/data.json', i => {
-            let icons = JSON.parse(i).icons;
-            this.setState({ icon: icons });
-        });
     }
 
     handleSelectOrUnSelect(idx) {
@@ -38,37 +34,9 @@ export default class Main extends Component {
         this.setState({ 'array': { ...icon, icon } })
     }
 
-    _renderApp(i, idx) {
-        const iconStyle = {
-            height: '1em',
-            verticalAlign: 'middle',
-            fill: 'currentColor',
-            overflow: 'hidden'
-        }
-
-        return (
-            <li className={`${i.name}${i.selected ? '' : ' selected'}`} key={idx}>
-                <svg className="iconapp" aria-hidden="true" style={iconStyle}>
-                    <use xlinkHref={i.href}></use>
-                </svg>
-                <span className="icon-name" title={i.title}>{i.title}</span>
-                <div className="icon-cover">
-                    <span title="添加" className="cover-item anticon cover-item-line icon-star" onClick={this.handleSelectOrUnSelect.bind(this, idx)}></span>
-                    <Link to={`/${i.name.substr(7)}`} key={i.idx}>
-                        <span title="查看" className="cover-item anticon cover-item-line icon-eye"></span>
-                    </Link>
-                </div>
-            </li>
-        )
-    }
-
     render() {
         if (!this.state.menu) {
             return <div>loading...</div>
-        }
-
-        if (!this.state.icon) {
-            return <div>loading...</div>;
         }
 
         // 通过类别来帅选显示应用
@@ -90,20 +58,7 @@ export default class Main extends Component {
                     }
                 </Breadcrumb>
                 <div className="main">
-                    <ul className="icon-list">
-                        {
-                            this.state.icon.map((i, idx) => {
-                                if (!filter || filter === i.catalog)
-                                    return this._renderApp(i, idx)
-                                else
-                                    return null
-                            })
-                        }
-                    </ul>
-                    <Switch>
-                        <Route exact path='/:App' component={Details}></Route>
-                        <Route path='/:App/_edit' component={MyEditor}></Route>
-                    </Switch>
+                    <AppRoutes />
                 </div>
                 <Layout>
                     <Footer style={{ textAlign: 'center' }}>

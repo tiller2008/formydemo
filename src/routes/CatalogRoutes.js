@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Main from '../Components/Main';
 
-export default class MainRouter extends Component {
+export default class CatalogRoutes extends Component {
 
     render() {
         return (
