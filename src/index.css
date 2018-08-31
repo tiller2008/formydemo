@@ -10,3 +10,21 @@ body {
   color:#333;
   font-family: sans-serif;
 }
+
+#login_register{
+  width: 432px;
+  margin:0 auto;
+  text-align: center;
+}
+
+.switch{
+  background: #f6f6f6;
+  height: 58px;
+  line-height: 58px;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ebebeb;
+  text-align: center;
+  font-size: 16px;
+  vertical-align: middle;
+}
